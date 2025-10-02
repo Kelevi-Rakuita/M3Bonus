@@ -1,0 +1,67 @@
+AI Collaboration Log (ai_log.txt)
+Tool: ChatGPT (Orange Limited Full Access)
+Project: Number Guessing Game (C++)
+
+1) Initial Prompt (Student → AI)
+I'm a first-year C++ programmer who just learned:
+- Variables and basic I/O
+- Functions (void functions, parameters)
+- If/else statements and switch cases
+
+I want to create a Number Guessing game that:
+1. Runs in the terminal (text-based)
+2. Uses multiple functions for organization
+3. Makes decisions with if statements
+4. Is fun to play repeatedly
+
+Can you help me build this step-by-step? Start with the absolute simplest version that works, then we can add features one at a time.
+Important: I need to understand each part, so please explain your code choices and ask me questions to make sure I'm following along.
+
+2) Exchange 1 (AI → Student) — Simplest Version
+AI: Great! Let’s start with a constant secret number so we can wire up input/output. We’ll just check if the guess equals 6 and print a message. Once that works, we’ll add randomness.
+
+Student Clarifying Q#1: “Why start with a fixed number instead of random right away?”
+AI: To reduce moving parts—first confirm the loop and input work, then add randomness so bugs are easier to isolate.
+
+3) Exchange 2 (Student → AI) — Make it Random
+Student: “Okay, how do we make it random and seed it?”
+AI: Use rand() % range + 1 and seed once with srand(time(0)). We’ll keep ranges small at first (1-10). I’ll put this inside a function generateSecret(max).
+
+Student Clarifying Q#2: “What does % do here?”
+AI: It’s the modulo operator—(rand() % 10) gives 0–9; add 1 to make 1–10.
+
+4) Exchange 3 (Student → AI) — Add Hints
+Student: “Can we add higher/lower hints and count attempts?”
+AI: Yes. We’ll create playRound(max, attempts, score) that loops until correct and prints hints using if/else. We’ll compute a simple score based on attempts.
+
+Student Clarifying Q#3: “Why pass attempts and score by reference?”
+AI: So the function can write results back to main without using globals.
+
+5) Exchange 4 (AI Suggestion → Student Modification #1)
+AI: We could use <random> with mt19937 for better randomness.
+Student: “We haven’t learned that yet. Can we stick to srand/rand for now?”
+AI: Absolutely—staying with srand/rand for this assignment.
+
+6) Exchange 5 (AI Suggestion → Student Modification #2)
+AI: Let’s store past scores in a vector to show history.
+Student: “We haven’t covered arrays/vectors yet. Can we just show totals?”
+AI: Good call. We’ll keep cumulative score only—no vectors.
+
+7) Exchange 6 (Student Correction → AI) — Input Validation
+Student: “It crashes on letters. Can we validate input and re-prompt?”
+AI: Yes. We’ll add getValidatedInt(prompt, min, max) that clears bad input with cin.clear() and cin.ignore(). This prevents crashes and keeps guesses in range.
+
+8) Exchange 7 (Student → AI) — Difficulty + Switch
+Student: “Can we add Easy/Normal/Hard and use a switch for practice?”
+AI: Yep. showMenu() returns 1–4; getMaxForDifficulty() uses switch to map to 10/50/100; 4 quits.
+
+9) Exchange 8 (Student → AI) — Replay
+Student: “After a round, can we ask to play again without restarting?”
+AI: We’ll add askReplay() that reads y/n and loops in main.
+
+10) Final Notes
+- Student chose not to use classes/arrays yet to stay within Module 3 scope.
+- Student requested simple scoring (100 minus 10 per extra attempt, minimum 10).
+- Student verified that the game compiles and runs, and added comments to explain tricky parts.
+
+End of Log.
