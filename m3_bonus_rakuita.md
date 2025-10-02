@@ -1,4 +1,4 @@
-# m3_bonus_rakuita.md — Prompts & Reflection
+# m3bonus_rakuita.md — Prompts & Reflection
 
 ## Prompts / Conversation Highlights
 - Starter prompt asking for step-by-step, minimal version first, and explanations.
