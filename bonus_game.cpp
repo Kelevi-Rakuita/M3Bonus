@@ -1,13 +1,10 @@
-// bonus_game.cpp
-// Number Guessing Game - M3 Bonus
-// Requirements satisfied:
-// - Text-based terminal game
-// - Uses multiple functions beyond main (showTitle, showMenu, getMaxForDifficulty, generateSecret, getValidatedInt, playRound, askReplay)
-// - Uses if/else and switch for decisions
-// - Replayable loop and simple scoring
-//
-// Build (example): g++ -std=c++11 bonus_game.cpp -o bonus_game
-// Run: ./bonus_game
+/*
+CSC 134
+Rakuita
+M3BONUS - Number Guessing
+10/2/2025
+
+*/
 
 #include <iostream>
 #include <cstdlib>   // rand, srand
@@ -100,7 +97,7 @@ bool playRound(int maxValue, int& attemptsOut, int& scoreOut) {
         attemptsOut++;
 
         if (guess == secret) {
-            cout << "🎉 Correct! The number was " << secret << ".\n";
+            cout << "ðŸŽ‰ Correct! The number was " << secret << ".\n";
             // Simple scoring: start at 100 and subtract 10 for each extra attempt (min 10)
             int raw = 100 - (attemptsOut - 1) * 10;
             scoreOut = (raw < 10) ? 10 : raw;
@@ -166,3 +163,4 @@ int main() {
 
     return 0;
 }
+
